@@ -51,7 +51,7 @@ class User1State extends ConsumerWidget {
           children: [
             SizedBox(
               width: 150,
-              child: Text(''),
+              child: Text('name'),
             ),
             SizedBox(height: 16),
           ],
