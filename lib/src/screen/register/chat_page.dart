@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:counterofferv1/src/screan/register/addPost_page.dart';
+import 'package:counterofferv1/src/screen/register/addPost_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
 
