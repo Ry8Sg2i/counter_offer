@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:counterofferv1/src/screan/register/chat_page.dart';
-import 'package:counterofferv1/src/screan/my_page.dart';
-import 'package:counterofferv1/src/screan/setting_page.dart';
+import 'package:counterofferv1/src/screen/register/chat_page.dart';
+import 'package:counterofferv1/src/screen/my_page.dart';
+import 'package:counterofferv1/src/screen/setting_page.dart';
 
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
