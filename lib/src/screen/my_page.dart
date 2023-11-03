@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
 
@@ -34,29 +33,39 @@ class User1State extends ConsumerWidget {
     
     // ignore: unused_local_variable
     final User user = ref.watch(userProvider.notifier).state!;
-    // ignore: unused_local_variable
-    final AsyncValue<QuerySnapshot> asyncPostsQuery = ref.watch(postsQueryProvider);
+    final user1Data = ref.watch(user1Provider);
 
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      color: Colors.blue[50],
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(16),
-        child: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 150,
-              child: Text('name'),
+    return Column(
+      children: [
+            user1Data.when(data: (data) {
+              return Card(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Container(
+                    color: Colors.blue,
+                    child: ListTile(
+                      title: const Text("YourName"),
+                      subtitle: Text(data["name"]),
+                      textColor: Colors.white,
+                    ),
+                  ),
+                ),
+              );
+            },
+              // 値が読込中のとき
+              loading: () {
+                return const Center(
+                  child: Text('読込中...'),
+                );
+              },
+              // 値の取得に失敗したとき
+              error: (e, stackTrace) {
+                return Center(
+                  child: Text(e.toString()),
+                );
+              },
             ),
-            SizedBox(height: 16),
           ],
-        ),
-      ),
     );
   }
 }
@@ -69,7 +78,7 @@ class User1List extends ConsumerWidget {
 
     // ignore: unused_local_variable
     final User user = ref.watch(userProvider.notifier).state!;
-    final AsyncValue<QuerySnapshot> asyncPostsQuery = ref.watch(postsQueryProvider);
+    final user1Data = ref.watch(user1Provider);
 
     return Column(
       children: [
@@ -84,21 +93,40 @@ class User1List extends ConsumerWidget {
         Column(
           // StreamProviderから受け取った値は .when() で状態に応じて出し分けできる
           children: [
-            asyncPostsQuery.when(
-              // 値が取得できたとき
-              data: (QuerySnapshot query) {
-                return ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: query.docs.map((document) {
-                    return Card(
-                      child: ListTile(
-                        title: Text(document['email']),
-                      ),
-                    );
-                  }).toList(),
+            user1Data.when(data: (data) {
+              return Card(
+                child: ListTile(
+                  title: const Text("YourEmail"),
+                  subtitle: Text(data["email"]),
+                ),
+              );
+            },
+              // 値が読込中のとき
+              loading: () {
+                return const Center(
+                  child: Text('読込中...'),
                 );
               },
+              // 値の取得に失敗したとき
+              error: (e, stackTrace) {
+                return Center(
+                  child: Text(e.toString()),
+                );
+              },
+            ),
+          ],
+        ),
+        Column(
+          // StreamProviderから受け取った値は .when() で状態に応じて出し分けできる
+          children: [
+            user1Data.when(data: (data) {
+              return Card(
+                child: ListTile(
+                  title: const Text("YourGithubID"),
+                  subtitle: Text(data["GithubID"]),
+                ),
+              );
+            },
               // 値が読込中のとき
               loading: () {
                 return const Center(
