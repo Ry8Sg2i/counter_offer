@@ -48,3 +48,11 @@ final postsQueryProvider = StreamProvider.autoDispose((ref) {
       .orderBy('date')
       .snapshots();
 });
+
+final user1Provider = FutureProvider.autoDispose((ref) {
+  final uid = ref.watch(uidProvider);
+  return FirebaseFirestore.instance
+      .collection('posts')
+      .doc(uid)
+      .get();
+});
