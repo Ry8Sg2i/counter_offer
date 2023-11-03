@@ -1,10 +1,10 @@
-import 'package:counterofferv1/src/one%20sheet/select_page.dart';
+import 'package:counterofferv1/src/app.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:counterofferv1/src/one%20sheet/home_page.dart';
+import 'package:counterofferv1/src/onesheet/home_page.dart';
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
@@ -63,7 +63,7 @@ class LoginPage extends ConsumerWidget {
                       // ignore: use_build_context_synchronously
                       await Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) {
-                          return const SelectPage();
+                          return const MyStatefulWidget();
                         }),
                       );
                     } catch (e) {
@@ -89,7 +89,7 @@ class LoginPage extends ConsumerWidget {
                       // ignore: use_build_context_synchronously
                       await Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) {
-                          return const SelectPage();
+                          return const MyStatefulWidget();
                         }),
                       );
                     } on FirebaseAuthException catch (e) {
