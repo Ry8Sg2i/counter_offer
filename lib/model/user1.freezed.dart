@@ -115,12 +115,11 @@ class __$$User1ImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$User1Impl extends _User1 with DiagnosticableTreeMixin {
+class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
   const _$User1Impl(
       {required this.user1Name,
       required this.user1Email,
-      required this.user1githubid})
-      : super._();
+      required this.user1githubid});
 
   factory _$User1Impl.fromJson(Map<String, dynamic> json) =>
       _$$User1ImplFromJson(json);
@@ -179,12 +178,11 @@ class _$User1Impl extends _User1 with DiagnosticableTreeMixin {
   }
 }
 
-abstract class _User1 extends User1 {
+abstract class _User1 implements User1 {
   const factory _User1(
       {required final String user1Name,
       required final String user1Email,
       required final String user1githubid}) = _$User1Impl;
-  const _User1._() : super._();
 
   factory _User1.fromJson(Map<String, dynamic> json) = _$User1Impl.fromJson;
 
