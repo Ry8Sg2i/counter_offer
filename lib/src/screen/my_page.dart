@@ -184,10 +184,15 @@ class User1List extends ConsumerWidget {
           // StreamProviderから受け取った値は .when() で状態に応じて出し分けできる
           children: [
             user1Data.when(data: (data) {
-              return Card(
-                child: ListTile(
+              return  Card(
+                child: ExpansionTile(
                   leading: const Icon(Icons.description),
-                  title: Text(data["GithubID"]),
+                  title: const Text("sentence"),
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(data["sentence"]),
+                      ),
+                  ],
                 ),
               );
             },
@@ -211,19 +216,18 @@ class User1List extends ConsumerWidget {
   }
 }
 
-class MyPage extends StatefulWidget {
+class MyPage extends StatelessWidget {
   const MyPage({super.key});
 
-  @override
-  MyPageState createState() => MyPageState();
-}
-
-class MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Account'),
+        titleTextStyle: const TextStyle(
+          fontSize: 20,
+          color: Colors.greenAccent
+          ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
