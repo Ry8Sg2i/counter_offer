@@ -109,10 +109,10 @@ class LoginPage extends ConsumerWidget {
                     GoogleSignInAccount? signinAccount = await googleLogin.signIn();
                     if (signinAccount == null) return;
                     GoogleSignInAuthentication? auth =
-                    await signinAccount?.authentication;
+                    await signinAccount.authentication;
                     final OAuthCredential credential = GoogleAuthProvider.credential(
-                      idToken: auth?.idToken,
-                      accessToken: auth?.accessToken,
+                      idToken: auth.idToken,
+                      accessToken: auth.accessToken,
                     );
                     // 認証情報をFirebaseに登録
                     await FirebaseAuth.instance.signInWithCredential(credential);
