@@ -14,6 +14,10 @@ class SettingPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Setting'),
+        titleTextStyle: const TextStyle(
+          fontSize: 20,
+          color: Colors.greenAccent
+          ),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.logout),
