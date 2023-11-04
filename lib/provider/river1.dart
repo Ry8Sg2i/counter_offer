@@ -41,6 +41,10 @@ final userGitProvider = StateProvider.autoDispose((ref) {
   return '';
 });
 
+final appealProvider = StateProvider.autoDispose((ref) {
+  return '';
+});
+
 // StreamProviderを使うことでStreamも扱うことができる
 final postsQueryProvider = StreamProvider.autoDispose((ref) {
   return FirebaseFirestore.instance
