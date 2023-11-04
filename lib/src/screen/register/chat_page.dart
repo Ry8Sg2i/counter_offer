@@ -18,6 +18,10 @@ class ChatPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('AllUser'),
+        titleTextStyle: const TextStyle(
+          fontSize: 20,
+          color: Colors.greenAccent
+          ),
       ),
       body: Column(
         children: [
