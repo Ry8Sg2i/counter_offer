@@ -41,7 +41,7 @@ final userGitProvider = StateProvider.autoDispose((ref) {
   return '';
 });
 
-final appealProvider = StateProvider.autoDispose((ref) {
+final sentenceProvider = StateProvider.autoDispose((ref) {
   return '';
 });
 
