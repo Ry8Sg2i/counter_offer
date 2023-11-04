@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,35 +38,124 @@ class User1State extends ConsumerWidget {
 
     return Column(
       children: [
-            user1Data.when(data: (data) {
-              return Card(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Container(
-                    color: Colors.blue,
-                    child: ListTile(
-                      title: const Text("YourName"),
-                      subtitle: Text(data["name"]),
-                      textColor: Colors.white,
-                    ),
+        user1Data.when(data: (data) {
+          return Container(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Container(
+                color: Colors.blue,
+                child: ListTile(
+                  leading: const Icon(Icons.account_box, color:Colors.white),
+                  title: const Text("YourName"),
+                  subtitle: Text(data["name"]),
+                  textColor: Colors.white,
+                ),
+              ),
+            ),
+          );
+        },
+          // 値が読込中のとき
+          loading: () {
+            return const Center(
+              child: Text('読込中...'),
+            );
+          },
+          // 値の取得に失敗したとき
+          error: (e, stackTrace) {
+            return Center(
+              child: Text(e.toString()),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class Featured extends ConsumerWidget {
+  const Featured({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    final user1Data = ref.watch(user1Provider);
+
+
+    return Column(
+      children: [
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.only(top: 32, left: 8),
+          alignment: Alignment.centerLeft,
+          child: const Text(
+            'Your Data',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 24),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 0,
+                    vertical: 0,
+                  ),
+                  child: Column(
+          // StreamProviderから受け取った値は .when() で状態に応じて出し分けできる
+                    children: [
+                      user1Data.when(data: (data) {
+                        return ListTile(
+                            leading: const Icon(Icons.email),
+                            title: const Text("YourEmail"),
+                            subtitle: Text(data["email"]),
+                          );
+                      },
+                        // 値が読込中のとき
+                        loading: () {
+                          return const Center(
+                            child: Text('読込中...'),
+                          );
+                        },
+                        // 値の取得に失敗したとき
+                        error: (e, stackTrace) {
+                          return Center(
+                            child: Text(e.toString()),
+                          );
+                        },
+                      ),
+                      user1Data.when(data: (data) {
+                        return ListTile(
+                            leading: const Icon(Icons.account_box),
+                            title: const Text("YourGithubID"),
+                            subtitle: Text(data["GithubID"]),
+                          );
+                      },
+                        // 値が読込中のとき
+                        loading: () {
+                          return const Center(
+                            child: Text('読込中...'),
+                          );
+                        },
+                        // 値の取得に失敗したとき
+                        error: (e, stackTrace) {
+                          return Center(
+                            child: Text(e.toString()),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ),
-              );
-            },
-              // 値が読込中のとき
-              loading: () {
-                return const Center(
-                  child: Text('読込中...'),
-                );
-              },
-              // 値の取得に失敗したとき
-              error: (e, stackTrace) {
-                return Center(
-                  child: Text(e.toString()),
-                );
-              },
+              ),
             ),
           ],
+        ),
+      ],
     );
   }
 }
@@ -86,7 +176,7 @@ class User1List extends ConsumerWidget {
           padding: const EdgeInsets.only(top: 32, bottom: 8, left: 8),
           alignment: Alignment.centerLeft,
           child: const Text(
-            'Data',
+            'Points of Appeal',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
@@ -96,34 +186,8 @@ class User1List extends ConsumerWidget {
             user1Data.when(data: (data) {
               return Card(
                 child: ListTile(
-                  title: const Text("YourEmail"),
-                  subtitle: Text(data["email"]),
-                ),
-              );
-            },
-              // 値が読込中のとき
-              loading: () {
-                return const Center(
-                  child: Text('読込中...'),
-                );
-              },
-              // 値の取得に失敗したとき
-              error: (e, stackTrace) {
-                return Center(
-                  child: Text(e.toString()),
-                );
-              },
-            ),
-          ],
-        ),
-        Column(
-          // StreamProviderから受け取った値は .when() で状態に応じて出し分けできる
-          children: [
-            user1Data.when(data: (data) {
-              return Card(
-                child: ListTile(
-                  title: const Text("YourGithubID"),
-                  subtitle: Text(data["GithubID"]),
+                  leading: const Icon(Icons.description),
+                  title: Text(data["GithubID"]),
                 ),
               );
             },
@@ -169,6 +233,7 @@ class MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
               children: [
                 _Header(title: 'User'),
                 User1State(),
+                Featured(),
                 User1List(),
               ],
             ),
