@@ -14,6 +14,7 @@ class AddPostPage extends ConsumerWidget {
     final name = ref.watch(userNameProvider);
     final userEmail = ref.watch(userEmailProvider);
     final git = ref.watch(userGitProvider);
+    final sentence = ref.watch(sentenceProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -46,6 +47,15 @@ class AddPostPage extends ConsumerWidget {
                   ref.read(userGitProvider.notifier).state = value;
                 },
               ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'sentence'),
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                onChanged: (String value) {
+                  // Providerから値を更新
+                  ref.read(sentenceProvider.notifier).state = value;
+                },
+              ),
               const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
@@ -62,7 +72,8 @@ class AddPostPage extends ConsumerWidget {
                       'userEmail': userEmail,
                       'GithubID': git,
                       'email': email,
-                      'date': date
+                      'date': date,
+                      'sentence': sentence
                     });
                     // ignore: use_build_context_synchronously
                     Navigator.of(context).pop();
