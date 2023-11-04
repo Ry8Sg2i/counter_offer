@@ -32,10 +32,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
+          backgroundColor: Colors.black,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: Colors.greenAccent,
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_box), label: 'Account'),
-            BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
+            BottomNavigationBarItem(icon: Icon(Icons.home, color:Colors.white), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.account_box, color:Colors.white), label: 'Account'),
+            BottomNavigationBarItem(icon: Icon(Icons.settings, color:Colors.white), label: 'Setting'),
           ],
           type: BottomNavigationBarType.fixed,
         ));
