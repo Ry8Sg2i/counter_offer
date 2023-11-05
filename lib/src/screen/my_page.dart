@@ -45,7 +45,7 @@ class User1State extends ConsumerWidget {
               child: Container(
                 color: Colors.blue,
                 child: ListTile(
-                  leading: const Icon(Icons.account_box, color:Colors.white),
+                  leading: const Icon(Icons.account_circle, color:Colors.white),
                   title: const Text("YourName"),
                   subtitle: Text(data["name"]),
                   textColor: Colors.white,
@@ -110,7 +110,7 @@ class Featured extends ConsumerWidget {
                     children: [
                       user1Data.when(data: (data) {
                         return ListTile(
-                            leading: const Icon(Icons.email),
+                            leading: const Icon(Icons.email, color:Colors.black),
                             title: const Text("YourEmail"),
                             subtitle: Text(data["email"]),
                           );
@@ -130,7 +130,7 @@ class Featured extends ConsumerWidget {
                       ),
                       user1Data.when(data: (data) {
                         return ListTile(
-                            leading: const Icon(Icons.account_box),
+                            leading: const Icon(Icons.account_box, color:Colors.black),
                             title: const Text("YourGithubID"),
                             subtitle: Text(data["GithubID"]),
                           );
@@ -216,17 +216,29 @@ class User1List extends ConsumerWidget {
   }
 }
 
-class MyPage extends StatelessWidget {
+class MyPage extends ConsumerWidget {
   const MyPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    final User user = ref.watch(userProvider.notifier).state!;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Account'),
-        titleTextStyle: const TextStyle(
-          fontSize: 20,
-          color: Colors.greenAccent
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+                "Setting",
+                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
+              ),
+            Text(
+                '${user.email}',
+                style: const TextStyle(color: Colors.white, fontSize: 14.0),
+              ),
+            ]
           ),
       ),
       body: SafeArea(
