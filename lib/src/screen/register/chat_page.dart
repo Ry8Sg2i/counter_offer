@@ -17,10 +17,19 @@ class ChatPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AllUser'),
-        titleTextStyle: const TextStyle(
-          fontSize: 20,
-          color: Colors.greenAccent
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+                "AllUser",
+                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
+              ),
+            Text(
+                '${user.email}',
+                style: const TextStyle(color: Colors.white, fontSize: 14.0),
+              ),
+            ]
           ),
       ),
       body: Column(
@@ -38,20 +47,9 @@ class ChatPage extends ConsumerWidget {
                   children: query.docs.map((document) {
                     return Card(
                       child: ListTile(
+                        leading: const Icon(Icons.account_circle, color:Colors.black),
                         title: Text(document['name']),
                         subtitle: Text(document['email']),
-                        trailing: document['email'] == user.email
-                            ? IconButton(
-                          icon: const Icon(Icons.delete),
-                          onPressed: () async {
-                            // 投稿メッセージのドキュメントを削除
-                            await FirebaseFirestore.instance
-                                .collection('posts')
-                                .doc(ref.watch(uidProvider))
-                                .delete();
-                          },
-                        )
-                            : null,
                       ),
                     );
                   }).toList(),
