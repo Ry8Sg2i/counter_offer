@@ -1,3 +1,4 @@
+import 'package:counterofferv1/auth/fargot_password.dart';
 import 'package:counterofferv1/src/app.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -138,6 +139,17 @@ class LoginPage extends ConsumerWidget {
                   ),
                 ),
               ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const FargotPassword(); // 遷移先の画面widgetを指定
+                        },
+                      ),
+                    );
+                  },
+                  child: const Text('パスワードを忘れた'))
             ],
           ),
         ),
