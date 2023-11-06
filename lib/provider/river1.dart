@@ -45,6 +45,10 @@ final sentenceProvider = StateProvider.autoDispose((ref) {
   return '';
 });
 
+final fargotPasswordProvider = StateProvider.autoDispose((ref) {
+  return '';
+});
+
 // StreamProviderを使うことでStreamも扱うことができる
 final postsQueryProvider = StreamProvider.autoDispose((ref) {
   return FirebaseFirestore.instance
