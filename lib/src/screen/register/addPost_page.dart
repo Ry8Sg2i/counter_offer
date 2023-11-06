@@ -60,7 +60,7 @@ class AddPostPage extends ConsumerWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  child: const Text('投稿'),
+                  child: const Text('作成'),
                   onPressed: () async {
                     final date = DateTime.now().toLocal().toIso8601String();
                     final email = user.email;
