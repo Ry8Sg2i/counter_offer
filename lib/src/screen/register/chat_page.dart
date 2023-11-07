@@ -34,10 +34,6 @@ class ChatPage extends ConsumerWidget {
       ),
       body: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: Text('ログイン情報：${user.email}'),
-          ),
           Expanded(
             // StreamProviderから受け取った値は .when() で状態に応じて出し分けできる
             child: asyncPostsQuery.when(
