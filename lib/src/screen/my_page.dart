@@ -112,7 +112,7 @@ class Featured extends ConsumerWidget {
                         return ListTile(
                             leading: const Icon(Icons.email, color:Colors.black),
                             title: const Text("YourEmail"),
-                            subtitle: Text(data["email"]),
+                            subtitle: Text(data["userEmail"]),
                           );
                       },
                         // 値が読込中のとき
