@@ -1,5 +1,6 @@
 import 'package:counterofferv1/auth/fargot_password.dart';
 import 'package:counterofferv1/src/app.dart';
+import 'package:counterofferv1/src/screen/register/addPost_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -64,7 +65,7 @@ class LoginPage extends ConsumerWidget {
                       // ignore: use_build_context_synchronously
                       await Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) {
-                          return const MyStatefulWidget();
+                          return const AddPostPage();
                         }),
                       );
                     } catch (e) {
