@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-import 'package:counterofferv1/contoroler/extension.dart';
 import 'package:counterofferv1/src/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
