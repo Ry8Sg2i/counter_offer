@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:counterofferv1/auth/login_page.dart';
@@ -30,13 +31,15 @@ class SettingPage extends ConsumerWidget {
             ]
           ),
       ),
-      body: Center(
-        child: Column(
+      body: Card(
+        child: ExpansionTile(
+          title: const Text("Account"),
           children: [
             Card(
               child: ExpansionTile(
                 title: const Text("logout"),
                 children: <Widget>[
+                  const Text("アカウントからLogoutします"),
                   TextButton(
                     onPressed: () async {
                       FirebaseAuth.instance.signOut();
@@ -48,6 +51,35 @@ class SettingPage extends ConsumerWidget {
                     }, 
                     child: const Text(
                       'Logout',
+                      style: TextStyle(
+                        color: Colors.red
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Card(
+              child: ExpansionTile(
+                title: const Text("DeleteAccount"),
+                children: <Widget>[
+                  const Text('アカウントを削除するボタンです'),
+                  TextButton(
+                    onPressed: () async {
+                      // 投稿メッセージのドキュメントを削除
+                      await FirebaseFirestore.instance
+                          .collection('posts')
+                          .doc(ref.watch(uidProvider))
+                          .delete();
+                      // ignore: use_build_context_synchronously
+                      await Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (context) => const LoginPage(),
+                          ),
+                        (route) => false);
+                    },
+                    child: const Text(
+                      'Delete',
                       style: TextStyle(
                         color: Colors.red
                       ),
