@@ -232,7 +232,7 @@ class MyPage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
-                "Setting",
+                "MyPage",
                 style: TextStyle(color: Colors.greenAccent, fontSize: 20),
               ),
             Text(
