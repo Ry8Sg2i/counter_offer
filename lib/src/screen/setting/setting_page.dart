@@ -1,7 +1,7 @@
 // ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:counterofferv1/contoroler/extension.dart';
-import 'package:counterofferv1/src/screen/setting/account.dart';
+import 'package:counterofferv1/src/screen/setting/accoumt/account.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // ignore: unused_import
@@ -38,11 +38,16 @@ class SettingPage extends ConsumerWidget {
       body: Center(
         child: Column(
           children: [
-            TextButton(
-                onPressed: () {
-                  context.to(const accountSetting());
-                },
-                child: const Text('Account')
+            Card(
+              child: SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {
+                    context.to(const accountSetting());
+                  },
+                  child: const Text('Account')
+                ),
+              ),
             ),
           ],
         ),
