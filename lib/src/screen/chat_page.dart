@@ -6,6 +6,7 @@ import 'package:counterofferv1/provider/river1.dart';
 
 // ConsumerWidgetでProviderから値を受け渡す
 class ChatPage extends ConsumerWidget {
+
   const ChatPage({super.key});
 
   @override
