@@ -20,7 +20,7 @@ class logoutSetting extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
-                "Account",
+                "Logout",
                 style: TextStyle(color: Colors.greenAccent, fontSize: 20),
               ),
             Text(
