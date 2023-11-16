@@ -1,4 +1,4 @@
-import 'package:counterofferv1/src/onesheet/home_page.dart';
+import 'package:counterofferv1/route/router.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
@@ -19,15 +19,14 @@ class CounterOffer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       // アプリ名
         title: 'CounterOffer',
         theme: ThemeData(
           // テーマカラー
             primarySwatch: primaryBlack
         ),
-        // ホームページ表示
-    home: const HomePage(),
+        routerConfig: router,
     );
   }
 }

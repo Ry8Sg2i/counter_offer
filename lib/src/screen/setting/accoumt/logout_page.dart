@@ -1,9 +1,9 @@
 // ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:counterofferv1/auth/login_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
+import 'package:go_router/go_router.dart';
 
 class logoutSetting extends ConsumerWidget {
   const logoutSetting({super.key});
@@ -49,11 +49,7 @@ class logoutSetting extends ConsumerWidget {
                   TextButton(
                     onPressed: () async {
                       FirebaseAuth.instance.signOut();
-                      await Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
-                          ),
-                        (route) => false);
+                      context.pushReplacement('/');
                     }, 
                     child: const Text(
                       'Logout',

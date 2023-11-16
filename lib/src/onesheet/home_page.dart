@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:counterofferv1/auth/login_page.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -25,11 +25,7 @@ class HomePage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) {
-                          return const LoginPage();
-                        }),
-                      );
+                      context.pushReplacement('/loginpage');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,

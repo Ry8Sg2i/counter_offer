@@ -1,12 +1,12 @@
 import 'package:counterofferv1/auth/fargot_password.dart';
-import 'package:counterofferv1/src/app.dart';
 import 'package:counterofferv1/src/screen/register/addPost_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
 import 'package:counterofferv1/src/onesheet/home_page.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
@@ -17,10 +17,10 @@ class LoginPage extends ConsumerWidget {
     final infoText = ref.watch(infoTextProvider);
     final email = ref.watch(emailProvider);
     final password = ref.watch(passwordProvider);
-    final googleLogin = GoogleSignIn(scopes: [
-      'email',
-      'https://www.googleapis.com/auth/contacts.readonly',
-    ]);
+    // final googleLogin = GoogleSignIn(scopes: [
+    //   'email',
+    //   'https://www.googleapis.com/auth/contacts.readonly',
+    // ]);
 
     return Scaffold(
       body: Center(
@@ -89,11 +89,7 @@ class LoginPage extends ConsumerWidget {
                         password: password,
                       );
                       // ignore: use_build_context_synchronously
-                      await Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) {
-                          return const MyStatefulWidget();
-                        }),
-                      );
+                      context.pushReplacement('/bottombar');
                     } on FirebaseAuthException catch (e) {
                       // Providerから値を更新
                       ref.read(infoTextProvider.notifier).state =
@@ -102,26 +98,26 @@ class LoginPage extends ConsumerWidget {
                   },
                 ),
               ),
-              SizedBox(
-                width: double.infinity,
-                child: OutlinedButton(
-                  // ボタンを押した時のイベント
-                  onPressed: () async {
-                    // Google認証
-                    GoogleSignInAccount? signinAccount = await googleLogin.signIn();
-                    if (signinAccount == null) return;
-                    GoogleSignInAuthentication? auth =
-                    await signinAccount.authentication;
-                    final OAuthCredential credential = GoogleAuthProvider.credential(
-                      idToken: auth.idToken,
-                      accessToken: auth.accessToken,
-                    );
-                    // 認証情報をFirebaseに登録
-                    await FirebaseAuth.instance.signInWithCredential(credential);
-                  },
-                  child: const Text('Googleでログイン'),
-                ),
-              ),
+              // SizedBox(
+              //   width: double.infinity,
+              //   child: OutlinedButton(
+              //     // ボタンを押した時のイベント
+              //     onPressed: () async {
+              //       // Google認証
+              //       GoogleSignInAccount? signinAccount = await googleLogin.signIn();
+              //       if (signinAccount == null) return;
+              //       GoogleSignInAuthentication? auth =
+              //       await signinAccount.authentication;
+              //       final OAuthCredential credential = GoogleAuthProvider.credential(
+              //         idToken: auth.idToken,
+              //         accessToken: auth.accessToken,
+              //       );
+              //       // 認証情報をFirebaseに登録
+              //       await FirebaseAuth.instance.signInWithCredential(credential);
+              //     },
+              //     child: const Text('Googleでログイン'),
+              //   ),
+              // ),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
