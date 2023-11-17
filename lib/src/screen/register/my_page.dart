@@ -1,9 +1,9 @@
 // ignore_for_file: avoid_unnecessary_containers
-import 'package:counterofferv1/src/screen/register/addPost_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
+import 'package:go_router/go_router.dart';
 
 class _Header extends StatelessWidget {
   final String title;
@@ -259,12 +259,8 @@ class MyPage extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.edit),
-        onPressed: () async {
-          await Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              return const AddPostPage();
-            }),
-          );
+        onPressed: () {
+          GoRouter.of(context).go('/account/addaccount');
         },
       ),
     );

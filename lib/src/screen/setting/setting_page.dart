@@ -1,13 +1,12 @@
 // ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:counterofferv1/contoroler/extension.dart';
-import 'package:counterofferv1/src/screen/setting/accoumt/account.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // ignore: unused_import
 import 'package:counterofferv1/auth/login_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
+import 'package:go_router/go_router.dart';
 
 // ConsumerWidgetでProviderから値を受け渡す
 class SettingPage extends ConsumerWidget {
@@ -43,7 +42,7 @@ class SettingPage extends ConsumerWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
-                    context.to(const accountSetting());
+                    GoRouter.of(context).go('/setting/accountsetting');
                   },
                   child: const Text('Account')
                 ),

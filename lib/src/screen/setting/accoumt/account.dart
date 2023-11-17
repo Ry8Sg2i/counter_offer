@@ -46,7 +46,7 @@ class accountSetting extends ConsumerWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
-                    context.go('/logoutsetting');
+                    GoRouter.of(context).go('/setting/accountsetting/logout');
                   },
                   child: const Text('Logout')
                 ),
@@ -57,7 +57,7 @@ class accountSetting extends ConsumerWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
-                    context.go('/deleteaccountsetting');
+                    GoRouter.of(context).go('/setting/accountsetting/deleteaccount');
                   },
                   child: const Text('DeleteAccount')
                 ),

@@ -30,11 +30,11 @@ final GoRouter goRouter = GoRouter(
       },
       routes: <RouteBase>[
         GoRoute(
-              path: 'login',
-              builder: (BuildContext context, GoRouterState state) {
-                return const LoginPage();
-              },
-            ),
+          path: 'login',
+          builder: (BuildContext context, GoRouterState state) {
+            return const LoginPage();
+          },
+        ),
       ]
     ),
     /// [ここまで]
@@ -93,16 +93,12 @@ final GoRouter goRouter = GoRouter(
               },
               routes: <RouteBase>[
                 GoRoute(
-                  path: 'logoutsetting',
-                  builder: (BuildContext context, GoRouterState state) {
-                    return const logoutSetting();
-                  },
+                  path: 'logout',
+                  builder: (BuildContext context, GoRouterState state) => const logoutSetting(),
                 ),
                 GoRoute(
-                  path: 'deleteaccountsetting',
-                  builder: (BuildContext context, GoRouterState state) {
-                    return const deleteAccountSetting();
-                  },
+                  path: 'deleteaccount',
+                  builder: (BuildContext context, GoRouterState state) =>const deleteAccountSetting(),
                 ),
               ],
             ),
@@ -113,6 +109,3 @@ final GoRouter goRouter = GoRouter(
     /// [ここまで]
   ],
 );
-
-class Navbar {
-}
