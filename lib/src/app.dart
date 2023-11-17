@@ -1,46 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:counterofferv1/src/screen/chat_page.dart';
-import 'package:counterofferv1/src/screen/register/my_page.dart';
-import 'package:counterofferv1/src/screen/setting/setting_page.dart';
+import 'package:go_router/go_router.dart';
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+/// を持つScaffoldを構築することによって、アプリの「シェル」を構築します。
+/// BottomNavigationBarを構築し、[child]はScaffoldの本体に配置されます。
+class ScaffoldWithNavBar extends StatelessWidget {
+  /// Constructs an [ScaffoldWithNavBar].
+  const ScaffoldWithNavBar({
+    required this.child,
+    Key? key,
+  }) : super(key: key);
 
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  static const _screens = [
-    ChatPage(),
-    MyPage(),
-    SettingPage(),
-  ];
-
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  /// Scaffoldのボディに表示するウィジェットです。
+  /// このサンプルではNavigatorです。
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-        body: _screens[_selectedIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          backgroundColor: Colors.black,
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.greenAccent,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home, color:Colors.white), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_box, color:Colors.white), label: 'Account'),
-            BottomNavigationBarItem(icon: Icon(Icons.settings, color:Colors.white), label: 'Setting'),
-          ],
-          type: BottomNavigationBarType.fixed,
-        ));
+      body: child,
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.greenAccent,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home,
+            color:Colors.white),
+            label: 'Main'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+            Icons.account_box,
+            color:Colors.white),
+            label: 'Account'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings,
+            color:Colors.white),
+            label: 'Setting'
+          ),
+        ],
+        currentIndex: _calculateSelectedIndex(context),
+        onTap: (int idx) => _onItemTapped(idx, context),
+      ),
+    );
+  }
+
+  static int _calculateSelectedIndex(BuildContext context) {
+    final String location = GoRouterState.of(context).uri.toString();
+    if (location.startsWith('/main')) {
+      return 0;
+    }
+    if (location.startsWith('/account')) {
+      return 1;
+    }
+    if (location.startsWith('/setting')) {
+      return 2;
+    }
+    return 0;
+  }
+
+  void _onItemTapped(int index, BuildContext context) {
+    switch (index) {
+      case 0:
+        GoRouter.of(context).go('/main');
+        break;
+      case 1:
+        GoRouter.of(context).go('/account');
+        break;
+      case 2:
+        GoRouter.of(context).go('/setting');
+        break;
+    }
   }
 }

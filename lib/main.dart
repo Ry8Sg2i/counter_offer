@@ -14,11 +14,11 @@ void main()  async {
   runApp(const ProviderScope(child: CounterOffer()));
 }
 
-class CounterOffer extends StatelessWidget {
+class CounterOffer extends ConsumerWidget {
   const CounterOffer({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
       // アプリ名
         title: 'CounterOffer',
@@ -26,7 +26,7 @@ class CounterOffer extends StatelessWidget {
           // テーマカラー
             primarySwatch: primaryBlack
         ),
-        routerConfig: router,
+        routerConfig: goRouter,
     );
   }
 }
