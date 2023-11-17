@@ -30,6 +30,7 @@ final GoRouter goRouter = GoRouter(
       },
       routes: <RouteBase>[
         GoRoute(
+          parentNavigatorKey: _rootNavigatorKey,
           path: 'login',
           builder: (BuildContext context, GoRouterState state) {
             return const LoginPage();

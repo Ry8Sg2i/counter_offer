@@ -47,7 +47,7 @@ class logoutSetting extends ConsumerWidget {
                 children: <Widget>[
                   const Text("アカウントからLogoutします"),
                   TextButton(
-                    onPressed: () async {
+                    onPressed: () {
                       FirebaseAuth.instance.signOut();
                       context.pushReplacement('/login');
                     }, 
