@@ -1,11 +1,9 @@
 // ignore_for_file: camel_case_types
-import 'package:counterofferv1/src/screen/setting/accoumt/deleteAccount_page.dart';
-import 'package:counterofferv1/src/screen/setting/accoumt/logout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
-import 'package:counterofferv1/contoroler/extension.dart';
+import 'package:go_router/go_router.dart';
 
 class accountSetting extends ConsumerWidget {
   const accountSetting({super.key});
@@ -48,7 +46,7 @@ class accountSetting extends ConsumerWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
-                    context.to(const logoutSetting());
+                    context.go('/logoutsetting');
                   },
                   child: const Text('Logout')
                 ),
@@ -59,7 +57,7 @@ class accountSetting extends ConsumerWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
-                    context.to(const deleteAccountSetting());
+                    context.go('/deleteaccountsetting');
                   },
                   child: const Text('DeleteAccount')
                 ),

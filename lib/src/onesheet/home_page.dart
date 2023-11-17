@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      context.pushReplacement('/loginpage');
+                      context.pushReplacement('/login');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,

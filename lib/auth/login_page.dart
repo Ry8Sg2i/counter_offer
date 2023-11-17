@@ -89,7 +89,7 @@ class LoginPage extends ConsumerWidget {
                         password: password,
                       );
                       // ignore: use_build_context_synchronously
-                      context.pushReplacement('/bottombar');
+                      context.go('/main');
                     } on FirebaseAuthException catch (e) {
                       // Providerから値を更新
                       ref.read(infoTextProvider.notifier).state =

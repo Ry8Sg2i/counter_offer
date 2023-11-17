@@ -2,9 +2,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:counterofferv1/auth/login_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
+import 'package:go_router/go_router.dart';
 
 class deleteAccountSetting extends ConsumerWidget {
   const deleteAccountSetting({super.key});
@@ -55,11 +55,7 @@ class deleteAccountSetting extends ConsumerWidget {
                           .doc(ref.watch(uidProvider))
                           .delete();
                       // ignore: use_build_context_synchronously
-                      await Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
-                          ),
-                        (route) => false);
+                      context.pushReplacement('/login');
                     },
                     child: const Text(
                       'Delete',

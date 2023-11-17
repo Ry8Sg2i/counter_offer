@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
-import 'package:counterofferv1/src/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:go_router/go_router.dart';
 
 class AddPostPage extends ConsumerWidget {
   const AddPostPage({super.key});
@@ -77,11 +77,7 @@ class AddPostPage extends ConsumerWidget {
                       'sentence': sentence
                     });
                     // ignore: use_build_context_synchronously
-                    await Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) {
-                          return const MyStatefulWidget();
-                        }),
-                      );
+                    context.pushReplacement('/main');
                   },
                 ),
               )
