@@ -1,11 +1,8 @@
-import 'package:counterofferv1/auth/fargot_password.dart';
-import 'package:counterofferv1/src/screen/register/addPost_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
-import 'package:counterofferv1/src/onesheet/home_page.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginPage extends ConsumerWidget {
@@ -63,11 +60,7 @@ class LoginPage extends ConsumerWidget {
                       ref.read(userProvider.notifier).state = result.user;
 
                       // ignore: use_build_context_synchronously
-                      await Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) {
-                          return const AddPostPage();
-                        }),
-                      );
+                      GoRouter.of(context).pushReplacement('/account/addaccount');
                     } catch (e) {
                       // Providerから値を更新
                       ref.read(infoTextProvider.notifier).state =
@@ -122,10 +115,7 @@ class LoginPage extends ConsumerWidget {
                 width: double.infinity,
                 child: OutlinedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
+                    context.go('/');
                   },
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -138,13 +128,7 @@ class LoginPage extends ConsumerWidget {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const FargotPassword(); // 遷移先の画面widgetを指定
-                        },
-                      ),
-                    );
+                    GoRouter.of(context).go('/login/fargotpass');
                   },
                   child: const Text('パスワードを忘れた'))
             ],

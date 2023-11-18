@@ -1,3 +1,4 @@
+import 'package:counterofferv1/auth/fargot_password.dart';
 import 'package:counterofferv1/auth/login_page.dart';
 import 'package:counterofferv1/src/app.dart';
 import 'package:counterofferv1/src/onesheet/home_page.dart';
@@ -35,6 +36,15 @@ final GoRouter goRouter = GoRouter(
           builder: (BuildContext context, GoRouterState state) {
             return const LoginPage();
           },
+          routes: <RouteBase>[
+            GoRoute(
+              parentNavigatorKey: _rootNavigatorKey,
+              path: 'fargotpass',
+              builder: (BuildContext context, GoRouterState state) {
+                return const FargotPassword();
+              },
+            ),
+          ]
         ),
       ]
     ),
