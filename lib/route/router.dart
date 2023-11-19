@@ -48,11 +48,6 @@ final GoRouter goRouter = GoRouter(
         ),
       ]
     ),
-    /// [ここまで]
-    // -----------------------------------------------------------------
-    /// アプリケーションシェル
-    /// この中にボトムナビゲーションバーする設定を書く.
-    /// [ここから]
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
       builder: (BuildContext context, GoRouterState state, Widget child) {
