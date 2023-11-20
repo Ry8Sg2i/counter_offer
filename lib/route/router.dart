@@ -12,7 +12,6 @@ import 'package:counterofferv1/src/screen/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-// GlobalKeyを使用してボトムナビゲーションバーのWidgetにアクセスできるようにする.
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
 final GlobalKey<NavigatorState> _shellNavigatorKey =
@@ -22,8 +21,6 @@ final GoRouter goRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: '/',
   routes: <RouteBase>[
-    /// ボトムナビゲーションバーとは違うルート.
-    /// [ここから]
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
@@ -54,25 +51,18 @@ final GoRouter goRouter = GoRouter(
         return ScaffoldWithNavBar(child: child);
       },
       routes: <RouteBase>[
-        /// 下部のナビゲーションバーに最初に表示される画面.
         GoRoute(
           path: '/main',
           builder: (BuildContext context, GoRouterState state) {
             return const ChatPage();
           },
         ),
-
-        /// 下のナビゲーションバーで2番目の項目が選択されたときに表示されます。
-        /// 表示されます。
         GoRoute(
           path: '/account',
           builder: (BuildContext context, GoRouterState state) {
             return const MyPage();
           },
           routes: <RouteBase>[
-            /// "/a/details "と同じですが、ルートNavigatorに表示させるために
-            /// parentNavigatorKey]を指定することで、ルートNavigatorに表示されます。これは画面Bとアプリケーションシェルの両方をカバーします。
-            /// アプリケーションシェルをカバーします。
             GoRoute(
               path: 'addaccount',
               parentNavigatorKey: _rootNavigatorKey,
@@ -82,16 +72,12 @@ final GoRouter goRouter = GoRouter(
             ),
           ],
         ),
-
-        /// 下部のナビゲーションバーに表示される3つ目の画面。
         GoRoute(
           path: '/setting',
           builder: (BuildContext context, GoRouterState state) {
             return const SettingPage();
           },
           routes: <RouteBase>[
-            // 内側のナビゲータに重ねて表示する詳細画面。
-            // これは画面Aをカバーするが、アプリケーションシェルはカバーしない。
             GoRoute(
               path: 'accountsetting',
               builder: (BuildContext context, GoRouterState state) {
