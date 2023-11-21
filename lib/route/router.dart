@@ -98,6 +98,5 @@ final GoRouter goRouter = GoRouter(
         ),
       ],
     ),
-    /// [ここまで]
   ],
 );
