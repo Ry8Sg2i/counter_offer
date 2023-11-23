@@ -19,17 +19,13 @@ class AddPostPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Column(
+        title: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
+            Text(
                 "Register",
                 style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-              ),
-            Text(
-                '${user.email}',
-                style: const TextStyle(color: Colors.white, fontSize: 14.0),
               ),
             ]
           ),

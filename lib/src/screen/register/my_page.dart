@@ -223,21 +223,15 @@ class MyPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
-    final User user = ref.watch(userProvider.notifier).state!;
-
     return Scaffold(
       appBar: AppBar(
-        title: Column(
+        title: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
+            Text(
                 "MyPage",
                 style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-              ),
-            Text(
-                '${user.email}',
-                style: const TextStyle(color: Colors.white, fontSize: 14.0),
               ),
             ]
           ),
