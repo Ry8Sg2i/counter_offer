@@ -37,28 +37,25 @@ class logoutSetting extends ConsumerWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 10,bottom: 10,right: 10,left: 10,),
-                  child: const Text("アカウントからログアウトしたり、アカウント停止オプションの詳細を確認したりできます。"),
+                  child: const Text("アカウントからログアウトします。"),
                 ),
               ],
             ),
             Card(
-              child: ExpansionTile(
-                title: const Text("logout"),
-                children: <Widget>[
-                  const Text("アカウントからLogoutします"),
-                  TextButton(
-                    onPressed: () {
-                      FirebaseAuth.instance.signOut();
-                      context.pushReplacement('/login');
-                    }, 
-                    child: const Text(
-                      'Logout',
-                      style: TextStyle(
-                        color: Colors.red
-                      ),
+              child: SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                    context.pushReplacement('/login');
+                  }, 
+                  child: const Text(
+                    'Logout',
+                    style: TextStyle(
+                      color: Colors.red
                     ),
                   ),
-                ],
+                ),
               ),
             ),
           ],
