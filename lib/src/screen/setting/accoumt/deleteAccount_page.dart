@@ -38,33 +38,30 @@ class deleteAccountSetting extends ConsumerWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 10,bottom: 10,right: 10,left: 10,),
-                  child: const Text("アカウントからログアウトしたり、アカウント停止オプションの詳細を確認したりできます。"),
+                  child: const Text("アカウントを削除します。この動作は取り消すことはできません。本当によろしいですか？"),
                 ),
               ],
             ),
             Card(
-              child: ExpansionTile(
-                title: const Text("DeleteAccount"),
-                children: <Widget>[
-                  const Text('アカウントを削除するボタンです'),
-                  TextButton(
-                    onPressed: () async {
-                      // 投稿メッセージのドキュメントを削除
-                      await FirebaseFirestore.instance
-                          .collection('posts')
-                          .doc(ref.watch(uidProvider))
-                          .delete();
-                      // ignore: use_build_context_synchronously
-                      context.pushReplacement('/login');
-                    },
-                    child: const Text(
-                      'Delete',
-                      style: TextStyle(
-                        color: Colors.red
-                      ),
+              child: SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () async {
+                    // 投稿メッセージのドキュメントを削除
+                    await FirebaseFirestore.instance
+                        .collection('posts')
+                        .doc(ref.watch(uidProvider))
+                        .delete();
+                    // ignore: use_build_context_synchronously
+                    context.pushReplacement('/login');
+                  },
+                  child: const Text(
+                    'Delete',
+                    style: TextStyle(
+                      color: Colors.red
                     ),
                   ),
-                ],
+                ),
               ),
             ),
           ],
