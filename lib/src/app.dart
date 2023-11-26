@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-/// を持つScaffoldを構築することによって、アプリの「シェル」を構築します。
-/// BottomNavigationBarを構築し、[child]はScaffoldの本体に配置されます。
-class ScaffoldWithNavBar extends StatelessWidget {
-  /// Constructs an [ScaffoldWithNavBar].
-  const ScaffoldWithNavBar({
+class Navbar extends StatelessWidget {
+  const Navbar({
     required this.child,
     Key? key,
   }) : super(key: key);
 
-  /// Scaffoldのボディに表示するウィジェットです。
-  /// このサンプルではNavigatorです。
   final Widget child;
 
   @override

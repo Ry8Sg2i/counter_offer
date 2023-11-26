@@ -48,7 +48,7 @@ final GoRouter goRouter = GoRouter(
     ShellRoute(
       navigatorKey: _shellNavigatorKey,
       builder: (BuildContext context, GoRouterState state, Widget child) {
-        return ScaffoldWithNavBar(child: child);
+        return Navbar(child: child);
       },
       routes: <RouteBase>[
         GoRoute(
