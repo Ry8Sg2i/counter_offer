@@ -42,16 +42,18 @@ class logoutSetting extends ConsumerWidget {
               ],
             ),
             Card(
-              
-              child: TextButton(
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                  context.pushReplacement('/login');
-                }, 
-                child: const Text(
-                  'Logout',
-                  style: TextStyle(
-                    color: Colors.red
+              child: SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                    context.pushReplacement('/login');
+                  }, 
+                  child: const Text(
+                    'Logout',
+                    style: TextStyle(
+                      color: Colors.red
+                    ),
                   ),
                 ),
               ),
