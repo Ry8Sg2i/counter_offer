@@ -24,15 +24,34 @@ class FargotPassword extends ConsumerWidget {
             children: <Widget>[
               // メールアドレス入力用テキストフィールド
               TextFormField(
-                decoration:
-                    const InputDecoration(labelText: 'メールアドレスを入力してください'),
+                decoration: InputDecoration(
+                  hintText: 'メールアドレス',
+                  hintStyle: const TextStyle(fontSize: 12, color: Colors.black),
+                  fillColor: Colors.grey[100],
+                  filled: true,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                      width: 2.0,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: const BorderSide(
+                      color: Colors.black,
+                      width: 1.0,
+                    ),
+                  ),
+                ),
                 onChanged: (String value) {
                     email = value;
                 },
               ),
               // パスワードリセットボタン
-              ElevatedButton(
-                  child: const Text('パスワードリセットする'),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
                   onPressed: () async {
                     try {
                       await FirebaseAuth.instance
@@ -43,7 +62,30 @@ class FargotPassword extends ConsumerWidget {
                       // ignore: avoid_print
                       print(e);
                     }
-                  }),
+                  },
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    shape: const StadiumBorder(),
+                  ),
+                  child: const Text(
+                    'パスワードリセットする',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+              // TextButton(
+              //     child: const Text('パスワードリセットする'),
+              //     onPressed: () async {
+              //       try {
+              //         await FirebaseAuth.instance
+              //             .sendPasswordResetEmail(email: email);
+              //         // ignore: avoid_print
+              //         print("パスワードリセット用のメールを送信しました");
+              //       } catch (e) {
+              //         // ignore: avoid_print
+              //         print(e);
+              //       }
+              //     }),
             ],
           ),
         ),
