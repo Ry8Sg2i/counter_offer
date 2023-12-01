@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
+import 'package:go_router/go_router.dart';
 
 // ConsumerWidgetでProviderから値を受け渡す
 class ChatPage extends ConsumerWidget {
@@ -40,6 +41,9 @@ class ChatPage extends ConsumerWidget {
                         leading: const Icon(Icons.account_circle, color:Colors.black),
                         title: Text(document['name']),
                         subtitle: Text(document['email']),
+                        onTap: () {
+                          GoRouter.of(context).go('/main/anotheruser');
+                        },
                       ),
                     );
                   }).toList(),
