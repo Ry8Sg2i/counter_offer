@@ -57,6 +57,14 @@ final GoRouter goRouter = GoRouter(
           builder: (BuildContext context, GoRouterState state) {
             return const ChatPage();
           },
+          routes: <GoRoute>[
+            GoRoute(
+              path: 'anotheruser',
+              builder: (BuildContext context, GoRouterState state) {
+                return const AnotherUser();
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: '/account',
@@ -66,16 +74,8 @@ final GoRouter goRouter = GoRouter(
           routes: <RouteBase>[
             GoRoute(
               path: 'addaccount',
-              parentNavigatorKey: _rootNavigatorKey,
               builder: (BuildContext context, GoRouterState state) {
                 return const AddPostPage();
-              },
-            ),
-            GoRoute(
-              path: 'anotheruser',
-              parentNavigatorKey: _rootNavigatorKey,
-              builder: (BuildContext context, GoRouterState state) {
-                return const AnotherUser();
               },
             ),
           ],
@@ -94,11 +94,15 @@ final GoRouter goRouter = GoRouter(
               routes: <RouteBase>[
                 GoRoute(
                   path: 'logout',
-                  builder: (BuildContext context, GoRouterState state) => const logoutSetting(),
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const logoutSetting();
+                  },
                 ),
                 GoRoute(
                   path: 'deleteaccount',
-                  builder: (BuildContext context, GoRouterState state) =>const deleteAccountSetting(),
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const deleteAccountSetting();
+                  },
                 ),
               ],
             ),
