@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
-import 'package:go_router/go_router.dart';
 
 class _Header extends StatelessWidget {
   final String title;
@@ -250,12 +249,6 @@ class AnotherUser extends ConsumerWidget {
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.edit),
-        onPressed: () {
-          GoRouter.of(context).go('/account/addaccount');
-        },
       ),
     );
   }
