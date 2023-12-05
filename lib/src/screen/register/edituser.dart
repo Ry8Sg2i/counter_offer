@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'package:counterofferv1/model/user1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
@@ -13,22 +14,21 @@ class AddPostPage extends ConsumerWidget {
     // Providerから値を受け取る
     final user = ref.watch(userProvider.notifier).state!;
     final name = ref.watch(userNameProvider);
-    final userEmail = ref.watch(userEmailProvider);
-    final git = ref.watch(userGitProvider);
+    final emailForCompany = ref.watch(userEmailProvider);
+    final githubid = ref.watch(userGitProvider);
     final sentence = ref.watch(sentenceProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
                 "Register",
                 style: TextStyle(color: Colors.greenAccent, fontSize: 20),
               ),
-            ]
-          ),
+            ]),
       ),
       body: Center(
         child: Container(
@@ -44,14 +44,14 @@ class AddPostPage extends ConsumerWidget {
                 },
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Email'),
+                decoration: const InputDecoration(labelText: 'emailForCompany'),
                 onChanged: (String value) {
                   // Providerから値を更新
                   ref.read(userEmailProvider.notifier).state = value;
                 },
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'GithubID'),
+                decoration: const InputDecoration(labelText: 'githubid'),
                 onChanged: (String value) {
                   // Providerから値を更新
                   ref.read(userGitProvider.notifier).state = value;
@@ -75,16 +75,18 @@ class AddPostPage extends ConsumerWidget {
                     final date = DateTime.now().toLocal().toIso8601String();
                     final email = user.email;
                     await FirebaseFirestore.instance
-                        .collection('posts')
+                        .collection('User1')
                         .doc(ref.watch(uidProvider))
-                        .set({
-                      'name': name,
-                      'userEmail': userEmail,
-                      'GithubID': git,
-                      'email': email,
-                      'date': date,
-                      'sentence': sentence
-                    });
+                        .set(
+                          User1(
+                            name: name,
+                            emailForCompany: emailForCompany,
+                            email: email!,
+                            date: date,
+                            githubid: githubid,
+                            sentence: sentence)
+                          .toJson(),
+                        );
                     // ignore: use_build_context_synchronously
                     context.pushReplacement('/main');
                   },
