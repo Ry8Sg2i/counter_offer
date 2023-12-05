@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:counterofferv1/model/user1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -50,17 +51,28 @@ final fargotPasswordProvider = StateProvider.autoDispose((ref) {
 });
 
 // StreamProviderを使うことでStreamも扱うことができる
-final postsQueryProvider = StreamProvider.autoDispose((ref) {
-  return FirebaseFirestore.instance
-      .collection('posts')
+final postsQueryProvider =
+    StreamProvider.autoDispose<List<User1>>((ref) async* {
+  final list = <User1>[];
+  final response = FirebaseFirestore.instance
+      .collection('User1')
       .orderBy('date')
       .snapshots();
+  response.listen((collection) {
+    for (final document in collection.docs) {
+      final userData = User1.fromJson(document.data());
+      list.add(userData);
+    }
+  });
+  yield list;
 });
 
-final user1Provider = FutureProvider.autoDispose((ref) {
+final user1Provider = FutureProvider.autoDispose<User1>((ref) async {
   final uid = ref.watch(uidProvider);
-  return FirebaseFirestore.instance
-      .collection('posts')
+  final response = await FirebaseFirestore.instance
+      .collection('User1')
       .doc(uid)
       .get();
+  final userData = User1.fromJson(response.data()!);
+  return userData;
 });
