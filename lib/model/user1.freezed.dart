@@ -20,10 +20,12 @@ User1 _$User1FromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User1 {
-  String get user1Name => throw _privateConstructorUsedError;
-  String get user1Email => throw _privateConstructorUsedError;
-  String get user1githubid => throw _privateConstructorUsedError;
-  String get user1sentence => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get emailForCompany => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  String get githubid => throw _privateConstructorUsedError;
+  String get sentence => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,10 +38,12 @@ abstract class $User1CopyWith<$Res> {
       _$User1CopyWithImpl<$Res, User1>;
   @useResult
   $Res call(
-      {String user1Name,
-      String user1Email,
-      String user1githubid,
-      String user1sentence});
+      {String name,
+      String emailForCompany,
+      String email,
+      String date,
+      String githubid,
+      String sentence});
 }
 
 /// @nodoc
@@ -55,27 +59,37 @@ class _$User1CopyWithImpl<$Res, $Val extends User1>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user1Name = null,
-    Object? user1Email = null,
-    Object? user1githubid = null,
-    Object? user1sentence = null,
+    Object? name = null,
+    Object? emailForCompany = null,
+    Object? email = null,
+    Object? date = null,
+    Object? githubid = null,
+    Object? sentence = null,
   }) {
     return _then(_value.copyWith(
-      user1Name: null == user1Name
-          ? _value.user1Name
-          : user1Name // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      user1Email: null == user1Email
-          ? _value.user1Email
-          : user1Email // ignore: cast_nullable_to_non_nullable
+      emailForCompany: null == emailForCompany
+          ? _value.emailForCompany
+          : emailForCompany // ignore: cast_nullable_to_non_nullable
               as String,
-      user1githubid: null == user1githubid
-          ? _value.user1githubid
-          : user1githubid // ignore: cast_nullable_to_non_nullable
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
-      user1sentence: null == user1sentence
-          ? _value.user1sentence
-          : user1sentence // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      githubid: null == githubid
+          ? _value.githubid
+          : githubid // ignore: cast_nullable_to_non_nullable
+              as String,
+      sentence: null == sentence
+          ? _value.sentence
+          : sentence // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -89,10 +103,12 @@ abstract class _$$User1ImplCopyWith<$Res> implements $User1CopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String user1Name,
-      String user1Email,
-      String user1githubid,
-      String user1sentence});
+      {String name,
+      String emailForCompany,
+      String email,
+      String date,
+      String githubid,
+      String sentence});
 }
 
 /// @nodoc
@@ -106,27 +122,37 @@ class __$$User1ImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user1Name = null,
-    Object? user1Email = null,
-    Object? user1githubid = null,
-    Object? user1sentence = null,
+    Object? name = null,
+    Object? emailForCompany = null,
+    Object? email = null,
+    Object? date = null,
+    Object? githubid = null,
+    Object? sentence = null,
   }) {
     return _then(_$User1Impl(
-      user1Name: null == user1Name
-          ? _value.user1Name
-          : user1Name // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
-      user1Email: null == user1Email
-          ? _value.user1Email
-          : user1Email // ignore: cast_nullable_to_non_nullable
+      emailForCompany: null == emailForCompany
+          ? _value.emailForCompany
+          : emailForCompany // ignore: cast_nullable_to_non_nullable
               as String,
-      user1githubid: null == user1githubid
-          ? _value.user1githubid
-          : user1githubid // ignore: cast_nullable_to_non_nullable
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
-      user1sentence: null == user1sentence
-          ? _value.user1sentence
-          : user1sentence // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      githubid: null == githubid
+          ? _value.githubid
+          : githubid // ignore: cast_nullable_to_non_nullable
+              as String,
+      sentence: null == sentence
+          ? _value.sentence
+          : sentence // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -136,26 +162,32 @@ class __$$User1ImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
   const _$User1Impl(
-      {required this.user1Name,
-      required this.user1Email,
-      required this.user1githubid,
-      required this.user1sentence});
+      {required this.name,
+      required this.emailForCompany,
+      required this.email,
+      required this.date,
+      required this.githubid,
+      required this.sentence});
 
   factory _$User1Impl.fromJson(Map<String, dynamic> json) =>
       _$$User1ImplFromJson(json);
 
   @override
-  final String user1Name;
+  final String name;
   @override
-  final String user1Email;
+  final String emailForCompany;
   @override
-  final String user1githubid;
+  final String email;
   @override
-  final String user1sentence;
+  final String date;
+  @override
+  final String githubid;
+  @override
+  final String sentence;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User1(user1Name: $user1Name, user1Email: $user1Email, user1githubid: $user1githubid, user1sentence: $user1sentence)';
+    return 'User1(name: $name, emailForCompany: $emailForCompany, email: $email, date: $date, githubid: $githubid, sentence: $sentence)';
   }
 
   @override
@@ -163,10 +195,12 @@ class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'User1'))
-      ..add(DiagnosticsProperty('user1Name', user1Name))
-      ..add(DiagnosticsProperty('user1Email', user1Email))
-      ..add(DiagnosticsProperty('user1githubid', user1githubid))
-      ..add(DiagnosticsProperty('user1sentence', user1sentence));
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('emailForCompany', emailForCompany))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('date', date))
+      ..add(DiagnosticsProperty('githubid', githubid))
+      ..add(DiagnosticsProperty('sentence', sentence));
   }
 
   @override
@@ -174,20 +208,21 @@ class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$User1Impl &&
-            (identical(other.user1Name, user1Name) ||
-                other.user1Name == user1Name) &&
-            (identical(other.user1Email, user1Email) ||
-                other.user1Email == user1Email) &&
-            (identical(other.user1githubid, user1githubid) ||
-                other.user1githubid == user1githubid) &&
-            (identical(other.user1sentence, user1sentence) ||
-                other.user1sentence == user1sentence));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.emailForCompany, emailForCompany) ||
+                other.emailForCompany == emailForCompany) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.githubid, githubid) ||
+                other.githubid == githubid) &&
+            (identical(other.sentence, sentence) ||
+                other.sentence == sentence));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, user1Name, user1Email, user1githubid, user1sentence);
+      runtimeType, name, emailForCompany, email, date, githubid, sentence);
 
   @JsonKey(ignore: true)
   @override
@@ -205,21 +240,27 @@ class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
 
 abstract class _User1 implements User1 {
   const factory _User1(
-      {required final String user1Name,
-      required final String user1Email,
-      required final String user1githubid,
-      required final String user1sentence}) = _$User1Impl;
+      {required final String name,
+      required final String emailForCompany,
+      required final String email,
+      required final String date,
+      required final String githubid,
+      required final String sentence}) = _$User1Impl;
 
   factory _User1.fromJson(Map<String, dynamic> json) = _$User1Impl.fromJson;
 
   @override
-  String get user1Name;
+  String get name;
   @override
-  String get user1Email;
+  String get emailForCompany;
   @override
-  String get user1githubid;
+  String get email;
   @override
-  String get user1sentence;
+  String get date;
+  @override
+  String get githubid;
+  @override
+  String get sentence;
   @override
   @JsonKey(ignore: true)
   _$$User1ImplCopyWith<_$User1Impl> get copyWith =>
