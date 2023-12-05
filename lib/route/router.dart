@@ -55,7 +55,7 @@ final GoRouter goRouter = GoRouter(
         GoRoute(
           path: '/main',
           builder: (BuildContext context, GoRouterState state) {
-            return const ChatPage();
+            return const UserListPage();
           },
           routes: <GoRoute>[
             GoRoute(

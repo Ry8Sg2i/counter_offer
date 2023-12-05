@@ -5,9 +5,9 @@ import 'package:counterofferv1/provider/river1.dart';
 import 'package:go_router/go_router.dart';
 
 // ConsumerWidgetでProviderから値を受け渡す
-class ChatPage extends ConsumerWidget {
+class UserListPage extends ConsumerWidget {
 
-  const ChatPage({super.key});
+  const UserListPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
