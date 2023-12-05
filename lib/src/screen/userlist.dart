@@ -1,5 +1,5 @@
+import 'package:counterofferv1/model/user1.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
 import 'package:go_router/go_router.dart';
@@ -12,7 +12,7 @@ class UserListPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Providerから値を受け取る
-    final AsyncValue<QuerySnapshot> asyncPostsQuery = ref.watch(postsQueryProvider);
+    final AsyncValue<List<User1>> asyncPostsQuery = ref.watch(postsQueryProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -33,14 +33,14 @@ class UserListPage extends ConsumerWidget {
             // StreamProviderから受け取った値は .when() で状態に応じて出し分けできる
             child: asyncPostsQuery.when(
               // 値が取得できたとき
-              data: (QuerySnapshot query) {
+              data: (query) {
                 return ListView(
-                  children: query.docs.map((document) {
+                  children: query.map((document) {
                     return Card(
                       child: ListTile(
                         leading: const Icon(Icons.account_circle, color:Colors.black),
-                        title: Text(document['name']),
-                        subtitle: Text(document['email']),
+                        title: Text(document.name),
+                        subtitle: Text(document.email),
                         onTap: () {
                           GoRouter.of(context).go('/main/anotheruser');
                         },
