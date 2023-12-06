@@ -1,4 +1,3 @@
-// ignore_for_file: avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -32,14 +31,13 @@ class User1State extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    
-    // ignore: unused_local_variable
-    final User user = ref.watch(userProvider.notifier).state!;
+
     final user1Data = ref.watch(user1Provider);
 
     return Column(
       children: [
         user1Data.when(data: (data) {
+          // ignore: avoid_unnecessary_containers
           return Container(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
@@ -48,7 +46,7 @@ class User1State extends ConsumerWidget {
                 child: ListTile(
                   leading: const Icon(Icons.account_circle, color:Colors.white),
                   title: const Text("YourName"),
-                  subtitle: Text(data["name"]),
+                  subtitle: Text(data.name),
                   textColor: Colors.white,
                 ),
               ),
@@ -78,9 +76,7 @@ class Featured extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final user1Data = ref.watch(user1Provider);
-
 
     return Column(
       children: [
@@ -113,7 +109,7 @@ class Featured extends ConsumerWidget {
                         return ListTile(
                             leading: const Icon(Icons.email, color:Colors.black),
                             title: const Text("YourEmail"),
-                            subtitle: Text(data["userEmail"]),
+                            subtitle: Text(data.emailForCompany),
                           );
                       },
                         // 値が読込中のとき
@@ -133,7 +129,7 @@ class Featured extends ConsumerWidget {
                         return ListTile(
                             leading: const Icon(Icons.account_box, color:Colors.black),
                             title: const Text("YourGithubID"),
-                            subtitle: Text(data["GithubID"]),
+                            subtitle: Text(data.githubid),
                           );
                       },
                         // 値が読込中のとき
@@ -191,8 +187,8 @@ class User1List extends ConsumerWidget {
                   title: const Text("sentence"),
                   children: <Widget>[
                     ListTile(
-                      title: Text(data["sentence"]),
-                      ),
+                      title: Text(data.sentence),
+                    ),
                   ],
                 ),
               );
