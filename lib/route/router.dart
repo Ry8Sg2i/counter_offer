@@ -1,5 +1,6 @@
 import 'package:counterofferv1/auth/fargot_password.dart';
 import 'package:counterofferv1/auth/login_page.dart';
+import 'package:counterofferv1/model/user1.dart';
 import 'package:counterofferv1/src/app.dart';
 import 'package:counterofferv1/src/onesheet/home_page.dart';
 import 'package:counterofferv1/src/screen/userlist.dart';
@@ -61,7 +62,7 @@ final GoRouter goRouter = GoRouter(
             GoRoute(
               path: 'anotheruser',
               builder: (BuildContext context, GoRouterState state) {
-                return const AnotherUser();
+                return AnotherUser(user1Data: state.extra as User1);
               },
             ),
           ],
