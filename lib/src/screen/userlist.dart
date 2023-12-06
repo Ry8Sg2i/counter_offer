@@ -42,7 +42,7 @@ class UserListPage extends ConsumerWidget {
                         title: Text(document.name),
                         subtitle: Text(document.email),
                         onTap: () {
-                          GoRouter.of(context).go('/main/anotheruser');
+                          GoRouter.of(context).go('/main/anotheruser',extra: document);
                         },
                       ),
                     );
