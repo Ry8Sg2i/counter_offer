@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
 import 'package:go_router/go_router.dart';
@@ -162,9 +161,6 @@ class User1List extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
-    // ignore: unused_local_variable
-    final User user = ref.watch(userProvider.notifier).state!;
     final user1Data = ref.watch(user1Provider);
 
     return Column(
