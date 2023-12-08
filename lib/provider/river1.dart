@@ -1,11 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:counterofferv1/model/user1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // ユーザー情報の受け渡しを行うためのProvider
 final userProvider = StateProvider.autoDispose((ref) {
   return FirebaseAuth.instance.currentUser;
+});
+
+final firebaseAuthProvider = StateProvider.autoDispose((ref) {
+  return FirebaseAuth.instance;
 });
 
 final uidProvider = StateProvider.autoDispose((ref) {
@@ -19,12 +24,13 @@ final infoTextProvider = StateProvider.autoDispose((ref) {
 
 // メールアドレスの受け渡しを行うためのProvider
 final emailProvider = StateProvider.autoDispose((ref) {
-  return '';
+  return TextEditingController(text: '');
 });
 
 // パスワードの受け渡しを行うためのProvider
 final passwordProvider = StateProvider.autoDispose((ref) {
-  return '';
+  // パスワードのテキストを保存するProvider
+  return TextEditingController(text: '');
 });
 
 // 名前の受け渡しを行うためのProvider
