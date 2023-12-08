@@ -28,18 +28,12 @@ class LoginPage extends ConsumerWidget {
             children: <Widget>[
               TextFormField(
                 decoration: const InputDecoration(labelText: 'メールアドレス'),
-                onChanged: (String value) {
-                  // Providerから値を更新
-                  ref.read(emailProvider.notifier).state = value;
-                },
+                controller: email,
               ),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'パスワード'),
                 obscureText: true,
-                onChanged: (String value) {
-                  // Providerから値を更新
-                  ref.read(passwordProvider.notifier).state = value;
-                },
+                controller: password,
               ),
               Container(
                 padding: const EdgeInsets.all(8),
@@ -53,8 +47,8 @@ class LoginPage extends ConsumerWidget {
                     try {
                       final FirebaseAuth auth = FirebaseAuth.instance;
                       final result = await auth.createUserWithEmailAndPassword(
-                        email: email,
-                        password: password,
+                        email: email.text,
+                        password: password.text,
                       );
                       // ユーザー情報を更新
                       ref.read(userProvider.notifier).state = result.user;
@@ -78,8 +72,8 @@ class LoginPage extends ConsumerWidget {
                     try {
                       final FirebaseAuth auth = FirebaseAuth.instance;
                       await auth.signInWithEmailAndPassword(
-                        email: email,
-                        password: password,
+                        email: email.text,
+                        password: password.text,
                       );
                       // ignore: use_build_context_synchronously
                       context.go('/main');

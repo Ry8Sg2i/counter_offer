@@ -44,9 +44,6 @@ class FargotPassword extends ConsumerWidget {
                     ),
                   ),
                 ),
-                onChanged: (String value) {
-                    email = value;
-                },
               ),
               // パスワードリセットボタン
               SizedBox(
@@ -55,7 +52,7 @@ class FargotPassword extends ConsumerWidget {
                   onPressed: () async {
                     try {
                       await FirebaseAuth.instance
-                          .sendPasswordResetEmail(email: email);
+                          .sendPasswordResetEmail(email: email.text);
                       // ignore: avoid_print
                       print("パスワードリセット用のメールを送信しました");
                     } catch (e) {
