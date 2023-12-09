@@ -29,6 +29,8 @@ class logoutSetting extends ConsumerWidget {
               ),
             ]
           ),
+        backgroundColor: Colors.black,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
         child: Column(
