@@ -13,6 +13,7 @@ abstract class User1 with _$User1 {
     required String date,
     required String githubid,
     required String sentence,
+    required String uid,
   }) = _User1;
 
   factory User1.fromJson(Map<String, dynamic> json) => _$User1FromJson(json);

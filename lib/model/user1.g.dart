@@ -13,6 +13,7 @@ _$User1Impl _$$User1ImplFromJson(Map<String, dynamic> json) => _$User1Impl(
       date: json['date'] as String,
       githubid: json['githubid'] as String,
       sentence: json['sentence'] as String,
+      uid: json['uid'] as String,
     );
 
 Map<String, dynamic> _$$User1ImplToJson(_$User1Impl instance) =>
@@ -23,4 +24,5 @@ Map<String, dynamic> _$$User1ImplToJson(_$User1Impl instance) =>
       'date': instance.date,
       'githubid': instance.githubid,
       'sentence': instance.sentence,
+      'uid': instance.uid,
     };

@@ -26,6 +26,7 @@ mixin _$User1 {
   String get date => throw _privateConstructorUsedError;
   String get githubid => throw _privateConstructorUsedError;
   String get sentence => throw _privateConstructorUsedError;
+  String get uid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $User1CopyWith<$Res> {
       String email,
       String date,
       String githubid,
-      String sentence});
+      String sentence,
+      String uid});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$User1CopyWithImpl<$Res, $Val extends User1>
     Object? date = null,
     Object? githubid = null,
     Object? sentence = null,
+    Object? uid = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -91,6 +94,10 @@ class _$User1CopyWithImpl<$Res, $Val extends User1>
           ? _value.sentence
           : sentence // ignore: cast_nullable_to_non_nullable
               as String,
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -108,7 +115,8 @@ abstract class _$$User1ImplCopyWith<$Res> implements $User1CopyWith<$Res> {
       String email,
       String date,
       String githubid,
-      String sentence});
+      String sentence,
+      String uid});
 }
 
 /// @nodoc
@@ -128,6 +136,7 @@ class __$$User1ImplCopyWithImpl<$Res>
     Object? date = null,
     Object? githubid = null,
     Object? sentence = null,
+    Object? uid = null,
   }) {
     return _then(_$User1Impl(
       name: null == name
@@ -154,6 +163,10 @@ class __$$User1ImplCopyWithImpl<$Res>
           ? _value.sentence
           : sentence // ignore: cast_nullable_to_non_nullable
               as String,
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -167,7 +180,8 @@ class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
       required this.email,
       required this.date,
       required this.githubid,
-      required this.sentence});
+      required this.sentence,
+      required this.uid});
 
   factory _$User1Impl.fromJson(Map<String, dynamic> json) =>
       _$$User1ImplFromJson(json);
@@ -184,10 +198,12 @@ class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
   final String githubid;
   @override
   final String sentence;
+  @override
+  final String uid;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User1(name: $name, emailForCompany: $emailForCompany, email: $email, date: $date, githubid: $githubid, sentence: $sentence)';
+    return 'User1(name: $name, emailForCompany: $emailForCompany, email: $email, date: $date, githubid: $githubid, sentence: $sentence, uid: $uid)';
   }
 
   @override
@@ -200,7 +216,8 @@ class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('date', date))
       ..add(DiagnosticsProperty('githubid', githubid))
-      ..add(DiagnosticsProperty('sentence', sentence));
+      ..add(DiagnosticsProperty('sentence', sentence))
+      ..add(DiagnosticsProperty('uid', uid));
   }
 
   @override
@@ -216,13 +233,14 @@ class _$User1Impl with DiagnosticableTreeMixin implements _User1 {
             (identical(other.githubid, githubid) ||
                 other.githubid == githubid) &&
             (identical(other.sentence, sentence) ||
-                other.sentence == sentence));
+                other.sentence == sentence) &&
+            (identical(other.uid, uid) || other.uid == uid));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, name, emailForCompany, email, date, githubid, sentence);
+      runtimeType, name, emailForCompany, email, date, githubid, sentence, uid);
 
   @JsonKey(ignore: true)
   @override
@@ -245,7 +263,8 @@ abstract class _User1 implements User1 {
       required final String email,
       required final String date,
       required final String githubid,
-      required final String sentence}) = _$User1Impl;
+      required final String sentence,
+      required final String uid}) = _$User1Impl;
 
   factory _User1.fromJson(Map<String, dynamic> json) = _$User1Impl.fromJson;
 
@@ -261,6 +280,8 @@ abstract class _User1 implements User1 {
   String get githubid;
   @override
   String get sentence;
+  @override
+  String get uid;
   @override
   @JsonKey(ignore: true)
   _$$User1ImplCopyWith<_$User1Impl> get copyWith =>
