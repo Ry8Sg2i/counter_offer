@@ -15,4 +15,4 @@ const MaterialColor primaryBlack = MaterialColor(
     900: Color(0xFF000000),
   },
 );
-const int _blackPrimaryValue = 0xFF000000;
+const int _blackPrimaryValue = 0xFF0000;
