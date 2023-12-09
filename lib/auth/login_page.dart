@@ -41,8 +41,11 @@ class LoginPage extends ConsumerWidget {
               ),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  child: const Text('ユーザー登録'),
+                child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      elevation: 16,
+                  ),
                   onPressed: () async {
                     try {
                       final FirebaseAuth auth = FirebaseAuth.instance;
@@ -52,7 +55,6 @@ class LoginPage extends ConsumerWidget {
                       );
                       // ユーザー情報を更新
                       ref.read(userProvider.notifier).state = result.user;
-
                       // ignore: use_build_context_synchronously
                       GoRouter.of(context).pushReplacement('/account/addaccount');
                     } catch (e) {
@@ -61,13 +63,14 @@ class LoginPage extends ConsumerWidget {
                       "登録に失敗しました：${e.toString()}";
                     }
                   },
+                  child: const Text('ユーザー登録',style:TextStyle(color:Colors.white))
                 ),
               ),
               const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  child: const Text('ログイン'),
+                  child: const Text('ログイン',style: TextStyle(color: Colors.black)),
                   onPressed: () async {
                     try {
                       final FirebaseAuth auth = FirebaseAuth.instance;
@@ -124,7 +127,8 @@ class LoginPage extends ConsumerWidget {
                   onPressed: () {
                     GoRouter.of(context).go('/login/fargotpass');
                   },
-                  child: const Text('パスワードを忘れた'))
+                  child: const Text('パスワードを忘れた',style: TextStyle(color: Colors.black))
+                ),
             ],
           ),
         ),
