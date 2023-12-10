@@ -16,24 +16,24 @@ class Navbar extends StatelessWidget {
       body: child,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.greenAccent,
+        backgroundColor: Colors.white,
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.black,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home,
-            color:Colors.white),
+            color:Colors.black),
             label: 'Main'
           ),
           BottomNavigationBarItem(
             icon: Icon(
             Icons.account_box,
-            color:Colors.white),
+            color:Colors.black),
             label: 'Account'
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings,
-            color:Colors.white),
+            color:Colors.black),
             label: 'Setting'
           ),
         ],
