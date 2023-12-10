@@ -26,6 +26,13 @@ class SettingPage extends ConsumerWidget {
               ),
             ]
           ),
+          bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(5),
+          child: Container(
+            height: 10,
+            color: Colors.white,
+          ),
+        ),
         backgroundColor: Colors.black,
       ),
       body: Center(
