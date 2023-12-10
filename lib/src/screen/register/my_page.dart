@@ -30,8 +30,8 @@ class User1State extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
-    final user1Data = ref.watch(user1Provider);
+    final myUid = ref.watch(uidProvider);
+    final user1Data = ref.watch(user1Provider(myUid));
 
     return Column(
       children: [
@@ -75,7 +75,8 @@ class Featured extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user1Data = ref.watch(user1Provider);
+    final myUid = ref.watch(uidProvider);
+    final user1Data = ref.watch(user1Provider(myUid));
 
     return Column(
       children: [
@@ -161,7 +162,8 @@ class User1List extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user1Data = ref.watch(user1Provider);
+    final myUid = ref.watch(uidProvider);
+    final user1Data = ref.watch(user1Provider(myUid));
 
     return Column(
       children: [
@@ -217,17 +219,12 @@ class MyPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
+        title:const Text(
                 "MyPage",
                 style: TextStyle(color: Colors.greenAccent, fontSize: 20),
               ),
-            ]
+              backgroundColor: Colors.black,
           ),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(

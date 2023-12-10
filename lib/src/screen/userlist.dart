@@ -16,17 +16,12 @@ class UserListPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
+        title:const Text(
                 "AllUser",
                 style: TextStyle(color: Colors.greenAccent, fontSize: 20),
               ),
-            ]
+              backgroundColor: Colors.black
           ),
-      ),
       body: Column(
         children: [
           Expanded(

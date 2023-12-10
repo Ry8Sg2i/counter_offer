@@ -23,15 +23,15 @@ class HomePage extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(top: 10, right: 10, bottom: 50, left: 10),
                   width: double.infinity,
-                  child: ElevatedButton(
+                  child: OutlinedButton(
                     onPressed: () {
                       context.pushReplacement('/login');
                     },
-                    style: ElevatedButton.styleFrom(
+                    style: OutlinedButton.styleFrom(
                       backgroundColor: Colors.black,
                       elevation: 16,
                     ),
-                    child: const Text('アカウント登録/ログイン'),
+                    child: const Text('アカウント登録/ログイン',style: TextStyle(color: Colors.white)),
                   ),
                 ),
               ],

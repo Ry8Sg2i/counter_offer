@@ -17,7 +17,8 @@ class AddPostPage extends ConsumerWidget {
     final emailForCompany = ref.watch(userEmailProvider);
     final githubid = ref.watch(userGitProvider);
     final sentence = ref.watch(sentenceProvider);
-
+    final uid = ref.watch(uidProvider);
+    
     return Scaffold(
       appBar: AppBar(
         title: const Column(
@@ -26,7 +27,7 @@ class AddPostPage extends ConsumerWidget {
             children: [
               Text(
                 "Register",
-                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 20),
               ),
             ]),
       ),
@@ -38,33 +39,21 @@ class AddPostPage extends ConsumerWidget {
             children: <Widget>[
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Name'),
-                onChanged: (String value) {
-                  // Providerから値を更新
-                  ref.read(userNameProvider.notifier).state = value;
-                },
+                controller: name,
               ),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'emailForCompany'),
-                onChanged: (String value) {
-                  // Providerから値を更新
-                  ref.read(userEmailProvider.notifier).state = value;
-                },
+                controller: emailForCompany,
               ),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'githubid'),
-                onChanged: (String value) {
-                  // Providerから値を更新
-                  ref.read(userGitProvider.notifier).state = value;
-                },
+                controller: githubid,
               ),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'sentence'),
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                onChanged: (String value) {
-                  // Providerから値を更新
-                  ref.read(sentenceProvider.notifier).state = value;
-                },
+                controller: sentence,
               ),
               const SizedBox(height: 8),
               SizedBox(
@@ -76,15 +65,16 @@ class AddPostPage extends ConsumerWidget {
                     final email = user.email;
                     await FirebaseFirestore.instance
                         .collection('User1')
-                        .doc(ref.watch(uidProvider))
+                        .doc(uid)
                         .set(
                           User1(
-                            name: name,
-                            emailForCompany: emailForCompany,
+                            name: name.text,
+                            emailForCompany: emailForCompany.text,
                             email: email!,
                             date: date,
-                            githubid: githubid,
-                            sentence: sentence)
+                            githubid: githubid.text,
+                            sentence: sentence.text,
+                            uid: user.uid)
                           .toJson(),
                         );
                     // ignore: use_build_context_synchronously

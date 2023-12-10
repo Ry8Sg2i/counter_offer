@@ -26,6 +26,7 @@ class SettingPage extends ConsumerWidget {
               ),
             ]
           ),
+        backgroundColor: Colors.black,
       ),
       body: Center(
         child: Column(

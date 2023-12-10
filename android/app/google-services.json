@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "618605476142",
+    "project_id": "countero",
+    "storage_bucket": "countero.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618605476142:android:e2bd41c14648e96e3b22bf",
+        "android_client_info": {
+          "package_name": "com.example.counterofferv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618605476142-lqvptmiamltucnc7lgc837bfonjs18dv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7Doieu93dx9EG8h3b2Oz1BZ0opdl5IAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618605476142-lqvptmiamltucnc7lgc837bfonjs18dv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "618605476142-5c7teqviseear5us1ro5l5fd4vn3cagt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.counterofferv1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
