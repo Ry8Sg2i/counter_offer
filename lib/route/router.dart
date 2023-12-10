@@ -64,7 +64,7 @@ final GoRouter goRouter = GoRouter(
               parentNavigatorKey: _shellNavigatorKey,
               path: 'anotheruser',
               builder: (BuildContext context, GoRouterState state) {
-                return AnotherUser(user1Data: state.extra as User1);
+                return AnotherUser(data: state.extra as User1);
               },
             ),
           ],
