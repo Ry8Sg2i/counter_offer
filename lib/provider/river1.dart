@@ -14,7 +14,7 @@ final firebaseAuthProvider = StateProvider.autoDispose((ref) {
 });
 
 final uidProvider = StateProvider.autoDispose((ref) {
-  return FirebaseAuth.instance.currentUser?.uid;
+  return FirebaseAuth.instance.currentUser?.uid ?? '';
 });
 
 // エラー情報の受け渡しを行うためのProvider
@@ -35,21 +35,21 @@ final passwordProvider = StateProvider.autoDispose((ref) {
 
 // 名前の受け渡しを行うためのProvider
 final userNameProvider = StateProvider.autoDispose((ref) {
-  return '';
+  return TextEditingController(text: '');
 });
 
 // emailの受け渡しを行うためのProvider
 final userEmailProvider = StateProvider.autoDispose((ref) {
-  return '';
+  return TextEditingController(text: '');
 });
 
 // githubidの受け渡しを行うためのProvider
 final userGitProvider = StateProvider.autoDispose((ref) {
-  return '';
+  return TextEditingController(text: '');
 });
 
 final sentenceProvider = StateProvider.autoDispose((ref) {
-  return '';
+  return TextEditingController(text: '');
 });
 
 final fargotPasswordProvider = StateProvider.autoDispose((ref) {
@@ -73,8 +73,7 @@ final postsQueryProvider =
   yield list;
 });
 
-final user1Provider = FutureProvider.autoDispose<User1>((ref) async {
-  final uid = ref.watch(uidProvider);
+final user1Provider = FutureProvider.autoDispose.family<User1, String>((ref, uid) async {
   final response = await FirebaseFirestore.instance
       .collection('User1')
       .doc(uid)
