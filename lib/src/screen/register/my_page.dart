@@ -218,12 +218,15 @@ class MyPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     return Scaffold(
-      appBar: AppBar(
-        title:const Text(
-                "MyPage",
-                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-              ),
-              backgroundColor: Colors.black,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60), 
+        child: AppBar(
+          title: const Text(
+                  "MyPage",
+                  style: TextStyle(color: Colors.greenAccent, fontSize: 20),
+                ),
+                backgroundColor: Colors.black,
+            ),
           ),
       body: SafeArea(
         child: SingleChildScrollView(
