@@ -17,11 +17,18 @@ class UserListPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title:const Text(
-                "AllUser",
-                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-              ),
-              backgroundColor: Colors.black
+          "AllUser",
+          style: TextStyle(color: Colors.greenAccent, fontSize: 20),
+        ),
+        backgroundColor: Colors.black,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(5),
+          child: Container(
+            height: 10,
+            color: Colors.white,
           ),
+        ),
+      ),
       body: Column(
         children: [
           Expanded(
