@@ -1,8 +1,6 @@
 // ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:counterofferv1/auth/login_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
