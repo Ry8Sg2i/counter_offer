@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'package:counterofferv1/compornents/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
@@ -232,19 +233,8 @@ class AnotherUser extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-                "Other User",
-                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-              ),
-            ]
-          ),
-          backgroundColor: Colors.black,
-          iconTheme: const IconThemeData(color: Colors.white),
+      appBar: const AppBarComponentWidget(
+        title: 'OtherUser',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
