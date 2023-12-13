@@ -219,13 +219,13 @@ class MyPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60), 
+        preferredSize: const Size.fromHeight(30), 
         child: AppBar(
           title: const Text(
-                  "MyPage",
+                  "",
                   style: TextStyle(color: Colors.greenAccent, fontSize: 20),
                 ),
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.white,
             ),
           ),
       body: SafeArea(
