@@ -18,7 +18,14 @@ class AppBarComponentWidget extends StatelessWidget implements PreferredSizeWidg
       ),
       flexibleSpace: Container(
         decoration: const BoxDecoration(
-          color: Colors.black,
+          color: Colors.white,
+        ),
+      ),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(5),
+        child: Container(
+          height: 10,
+          color: Colors.white,
         ),
       ),
     );
