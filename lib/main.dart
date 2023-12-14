@@ -1,5 +1,4 @@
 import 'package:counterofferv1/colors/color_schemes.g.dart';
-import 'package:counterofferv1/colors/colors.dart';
 import 'package:counterofferv1/route/router.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -25,7 +24,6 @@ class CounterOffer extends ConsumerWidget {
         darkTheme: ThemeData(
           useMaterial3: true,
           colorScheme: darkColorScheme,
-          primarySwatch: primaryBlack,
           appBarTheme: const AppBarTheme(
             surfaceTintColor: Colors.transparent,
           ),
@@ -36,7 +34,6 @@ class CounterOffer extends ConsumerWidget {
           // テーマカラー
           colorScheme: lightColorScheme,
           useMaterial3: true,
-          primarySwatch: primaryBlack,
           appBarTheme: const AppBarTheme(
             surfaceTintColor: Colors.transparent,
           ),
