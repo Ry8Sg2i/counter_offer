@@ -1,3 +1,4 @@
+import 'package:counterofferv1/compornents/appbar.dart';
 import 'package:counterofferv1/model/user1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,19 +16,8 @@ class UserListPage extends ConsumerWidget {
     final AsyncValue<List<User1>> asyncPostsQuery = ref.watch(postsQueryProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title:const Text(
-          "AllUser",
-          style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-        ),
-        backgroundColor: Colors.black,
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(5),
-          child: Container(
-            height: 10,
-            color: Colors.white,
-          ),
-        ),
+      appBar: const AppBarComponentWidget(
+        title: "Userlist",
       ),
       body: Column(
         children: [
