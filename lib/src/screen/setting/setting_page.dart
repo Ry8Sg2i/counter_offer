@@ -15,7 +15,7 @@ class SettingPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: const AppBarComponentWidget(
-        title: "",
+        title: "Setting",
       ),
       body: Center(
         child: Column(
