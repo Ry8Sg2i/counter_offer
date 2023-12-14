@@ -1,8 +1,7 @@
 // ignore_for_file: camel_case_types
+import 'package:counterofferv1/compornents/appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:counterofferv1/provider/river1.dart';
 import 'package:go_router/go_router.dart';
 
 class accountSetting extends ConsumerWidget {
@@ -11,26 +10,10 @@ class accountSetting extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Providerから値を受け取る
-    final User user = ref.watch(userProvider.notifier).state!;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text(
-                "Account",
-                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-              ),
-            Text(
-                '${user.email}',
-                style: const TextStyle(color: Colors.white, fontSize: 14.0),
-              ),
-            ]
-          ),
-          backgroundColor: Colors.black,
-          iconTheme: const IconThemeData(color: Colors.white),
+      appBar: const AppBarComponentWidget(
+        title: "Setting",
       ),
       body: Center(
         child: Column(
