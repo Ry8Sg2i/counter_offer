@@ -1,3 +1,4 @@
+import 'package:counterofferv1/compornents/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counterofferv1/provider/river1.dart';
@@ -218,16 +219,9 @@ class MyPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(30), 
-        child: AppBar(
-          title: const Text(
-                  "",
-                  style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-                ),
-                backgroundColor: Colors.white,
-            ),
-          ),
+    appBar: const AppBarComponentWidget(
+        title: "YourAccount",
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
