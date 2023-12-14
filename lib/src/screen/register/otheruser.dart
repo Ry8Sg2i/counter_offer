@@ -224,8 +224,8 @@ class User1List extends ConsumerWidget {
   }
 }
 
-class AnotherUser extends ConsumerWidget {
-  const AnotherUser({super.key, required this.data});
+class OtherUser extends ConsumerWidget {
+  const OtherUser({super.key, required this.data});
 
   final User1 data;
 
