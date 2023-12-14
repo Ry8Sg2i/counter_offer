@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'package:counterofferv1/compornents/appbar.dart';
 import 'package:counterofferv1/model/user1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,16 +21,8 @@ class AddPostPage extends ConsumerWidget {
     final uid = ref.watch(uidProvider);
     
     return Scaffold(
-      appBar: AppBar(
-        title: const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Register",
-                style: TextStyle(color: Colors.black, fontSize: 20),
-              ),
-            ]),
+      appBar: const AppBarComponentWidget(
+        title: 'EditUser',
       ),
       body: Center(
         child: Container(
