@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types, file_names
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:counterofferv1/compornents/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,23 +16,8 @@ class deleteAccountSetting extends ConsumerWidget {
     final User user = ref.watch(userProvider.notifier).state!;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text(
-                "DeleteAccount",
-                style: TextStyle(color: Colors.greenAccent, fontSize: 20),
-              ),
-            Text(
-                '${user.email}',
-                style: const TextStyle(color: Colors.white, fontSize: 14.0),
-              ),
-            ]
-          ),
-        backgroundColor: Colors.black,
-        iconTheme: const IconThemeData(color: Colors.white),
+      appBar: const AppBarComponentWidget(
+        title: 'DeleteAccount'
       ),
       body: Center(
         child: Column(
@@ -40,7 +26,7 @@ class deleteAccountSetting extends ConsumerWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 10,bottom: 10,right: 10,left: 10,),
-                  child: const Text("アカウントを削除します。この動作は取り消すことはできません。本当によろしいですか？"),
+                  child: Text("現在のアカウント${user.email}\nアカウントを削除します。この動作は取り消すことはできません。本当によろしいですか？"),
                 ),
               ],
             ),
