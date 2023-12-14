@@ -5,7 +5,7 @@ import 'package:counterofferv1/src/app.dart';
 import 'package:counterofferv1/src/onesheet/home_page.dart';
 import 'package:counterofferv1/src/screen/userlist.dart';
 import 'package:counterofferv1/src/screen/register/edituser.dart';
-import 'package:counterofferv1/src/screen/register/anotheruser.dart';
+import 'package:counterofferv1/src/screen/register/otheruser.dart';
 import 'package:counterofferv1/src/screen/register/my_page.dart';
 import 'package:counterofferv1/src/screen/setting/accoumt/account.dart';
 import 'package:counterofferv1/src/screen/setting/accoumt/deleteAccount_page.dart';
@@ -64,7 +64,7 @@ final GoRouter goRouter = GoRouter(
               parentNavigatorKey: _shellNavigatorKey,
               path: 'anotheruser',
               builder: (BuildContext context, GoRouterState state) {
-                return AnotherUser(data: state.extra as User1);
+                return OtherUser(data: state.extra as User1);
               },
             ),
           ],
