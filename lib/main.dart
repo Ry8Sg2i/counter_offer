@@ -27,8 +27,7 @@ class CounterOffer extends ConsumerWidget {
           appBarTheme: const AppBarTheme(
             surfaceTintColor: Colors.transparent,
           ),
-          canvasColor: Colors.white,
-          ),
+        ),
         title: 'CounterOffer',
         theme: ThemeData(
           // テーマカラー
@@ -37,7 +36,6 @@ class CounterOffer extends ConsumerWidget {
           appBarTheme: const AppBarTheme(
             surfaceTintColor: Colors.transparent,
           ),
-          canvasColor: Colors.white,
         ),
         routerConfig: goRouter,
     );
