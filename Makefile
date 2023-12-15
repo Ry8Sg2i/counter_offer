@@ -12,3 +12,10 @@ setup:
 .PHONY: commitreset
 commitreset:
 	git reset --soft HEAD^
+
+.PHONY: cocoa
+cocoa:
+	cd ios
+	rm Podfile.lock
+	pod install --repo-update
+	flutter clean
