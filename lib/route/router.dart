@@ -62,14 +62,12 @@ final GoRouter goRouter = GoRouter(
       },
       routes: <RouteBase>[
         GoRoute(
-          parentNavigatorKey: _shellNavigatorKey,
           path: '/main',
           builder: (BuildContext context, GoRouterState state) {
             return const UserListPage();
           },
           routes: <GoRoute>[
             GoRoute(
-              parentNavigatorKey: _shellNavigatorKey,
               path: 'anotheruser',
               builder: (BuildContext context, GoRouterState state) {
                 return OtherUser(data: state.extra as User1);
@@ -78,14 +76,12 @@ final GoRouter goRouter = GoRouter(
           ],
         ),
         GoRoute(
-          parentNavigatorKey: _shellNavigatorKey,
           path: '/account',
           builder: (BuildContext context, GoRouterState state) {
             return const MyPage();
           },
           routes: <RouteBase>[
             GoRoute(
-              parentNavigatorKey: _shellNavigatorKey,
               path: 'addaccount',
               builder: (BuildContext context, GoRouterState state) {
                 return const AddPostPage();
@@ -94,28 +90,24 @@ final GoRouter goRouter = GoRouter(
           ],
         ),
         GoRoute(
-          parentNavigatorKey: _shellNavigatorKey,
           path: '/setting',
           builder: (BuildContext context, GoRouterState state) {
             return const SettingPage();
           },
           routes: <RouteBase>[
             GoRoute(
-              parentNavigatorKey: _shellNavigatorKey,
               path: 'accountsetting',
               builder: (BuildContext context, GoRouterState state) {
                 return const accountSetting();
               },
               routes: <RouteBase>[
                 GoRoute(
-                  parentNavigatorKey: _shellNavigatorKey,
                   path: 'logout',
                   builder: (BuildContext context, GoRouterState state) {
                     return const logoutSetting();
                   },
                 ),
                 GoRoute(
-                  parentNavigatorKey: _shellNavigatorKey,
                   path: 'deleteaccount',
                   builder: (BuildContext context, GoRouterState state) {
                     return const deleteAccountSetting();
