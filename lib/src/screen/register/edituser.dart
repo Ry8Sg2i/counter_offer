@@ -71,7 +71,7 @@ class AddPostPage extends ConsumerWidget {
                           .toJson(),
                         );
                     // ignore: use_build_context_synchronously
-                    context.pushReplacement('/main');
+                    context.pushReplacement('/account');
                   },
                 ),
               )
