@@ -13,13 +13,13 @@ class NewAccount extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Providerから値を受け取る
-    final user = ref.watch(userProvider);
+    final user = ref.watch(userProvider.notifier).state;
     final name = ref.watch(userNameProvider);
     final emailForCompany = ref.watch(userEmailProvider);
     final githubid = ref.watch(userGitProvider);
     final sentence = ref.watch(sentenceProvider);
     final uid = ref.watch(uidProvider);
-    
+
     return Scaffold(
       appBar: const AppBarComponentWidget(
         title: 'NewAccount',
@@ -56,22 +56,24 @@ class NewAccount extends ConsumerWidget {
                   onPressed: () async {
                     final date = DateTime.now().toLocal().toIso8601String();
                     final email = user?.email;
-                    await FirebaseFirestore.instance
-                        .collection('User1')
-                        .doc(uid)
-                        .set(
-                          User1(
-                            name: name.text,
-                            emailForCompany: emailForCompany.text,
-                            email: email!,
-                            date: date,
-                            githubid: githubid.text,
-                            sentence: sentence.text,
-                            uid: user!.uid)
+                    if (email != null && email.isNotEmpty) {
+                      await FirebaseFirestore.instance
+                          .collection('User1')
+                          .doc(uid)
+                          .set(
+                            User1(
+                              name: name.text,
+                              emailForCompany: emailForCompany.text,
+                              email: email,
+                              date: date,
+                              githubid: githubid.text,
+                              sentence: sentence.text,
+                              uid: uid)
                           .toJson(),
-                        );
-                    // ignore: use_build_context_synchronously
-                    context.pushReplacement('/main');
+                          );
+                      // ignore: use_build_context_synchronously
+                      context.pushReplacement('/main');
+                    }
                   },
                 ),
               )
