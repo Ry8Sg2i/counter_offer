@@ -56,7 +56,7 @@ class LoginPage extends ConsumerWidget {
                       // ユーザー情報を更新
                       ref.read(userProvider.notifier).state = result.user;
                       // ignore: use_build_context_synchronously
-                      GoRouter.of(context).pushReplacement('/account/addaccount');
+                      GoRouter.of(context).pushReplacement('/login/newaccount');
                     } catch (e) {
                       // Providerから値を更新
                       ref.read(infoTextProvider.notifier).state =
