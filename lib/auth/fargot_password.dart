@@ -20,8 +20,11 @@ class FargotPassword extends ConsumerWidget {
         child: Container(
           padding: const EdgeInsets.all(24),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Container(
+                margin: const EdgeInsets.only(top: 250,bottom: 10,right: 10,left: 10),
+                child: const Text("パスワードを変更するためにお客様のアカウント宛にメールを送りますので、登録したアカウントを入力してください。"),
+              ),
               // メールアドレス入力用テキストフィールド
               TextFormField(
                 decoration: InputDecoration(
