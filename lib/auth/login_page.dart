@@ -60,7 +60,7 @@ class LoginPage extends ConsumerWidget {
                     } catch (e) {
                       // Providerから値を更新
                       ref.read(infoTextProvider.notifier).state =
-                      "登録に失敗しました：${e.toString()}";
+                      "登録に失敗しました。";
                     }
                   },
                   child: const Text('ユーザー登録',style:TextStyle(color:Colors.white))
@@ -80,10 +80,10 @@ class LoginPage extends ConsumerWidget {
                       );
                       // ignore: use_build_context_synchronously
                       context.go('/main');
-                    } on FirebaseAuthException catch (e) {
+                    } on FirebaseAuthException {
                       // Providerから値を更新
                       ref.read(infoTextProvider.notifier).state =
-                      "ログインに失敗しました：${e.toString()}";
+                      "ログインに失敗しました。\nアカウント、パスワードをもう一度お確かめください。";
                     }
                   },
                 ),
