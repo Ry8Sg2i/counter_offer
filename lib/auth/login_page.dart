@@ -14,10 +14,6 @@ class LoginPage extends ConsumerWidget {
     final infoText = ref.watch(infoTextProvider);
     final email = ref.watch(emailProvider);
     final password = ref.watch(passwordProvider);
-    // final googleLogin = GoogleSignIn(scopes: [
-    //   'email',
-    //   'https://www.googleapis.com/auth/contacts.readonly',
-    // ]);
 
     return Scaffold(
       body: Center(
@@ -88,26 +84,6 @@ class LoginPage extends ConsumerWidget {
                   },
                 ),
               ),
-              // SizedBox(
-              //   width: double.infinity,
-              //   child: OutlinedButton(
-              //     // ボタンを押した時のイベント
-              //     onPressed: () async {
-              //       // Google認証
-              //       GoogleSignInAccount? signinAccount = await googleLogin.signIn();
-              //       if (signinAccount == null) return;
-              //       GoogleSignInAuthentication? auth =
-              //       await signinAccount.authentication;
-              //       final OAuthCredential credential = GoogleAuthProvider.credential(
-              //         idToken: auth.idToken,
-              //         accessToken: auth.accessToken,
-              //       );
-              //       // 認証情報をFirebaseに登録
-              //       await FirebaseAuth.instance.signInWithCredential(credential);
-              //     },
-              //     child: const Text('Googleでログイン'),
-              //   ),
-              // ),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
